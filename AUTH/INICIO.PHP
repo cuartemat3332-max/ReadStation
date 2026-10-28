@@ -7,11 +7,9 @@ if (!isset($_SESSION["id_usuario"])) {
 }
 if (isset($_SESSION["rol"]) && $_SESSION["rol"]=="admin") {
     header("Location: INICIO_ADMIN.PHP");
-    exit;
-}
-var_dump($_SESSION["rol"]);
-
-$sql="SELECT * FROM LIBROS";
+    exit;}
+$id_usuario=$_SESSION["id_usuario"];
+$sql="SELECT * FROM LIBROS WHERE LIBROS.ID_LIBRO NOT IN(SELECT LIBROS.ID_LIBRO FROM LIBROS,COMPRA,DETALLE_COMPRA,USUARIOS WHERE USUARIOS.id='$id_usuario' AND USUARIOS.id=COMPRA.usuario_id AND COMPRA.ID_COMPRA=DETALLE_COMPRA.ID_COMPRA AND DETALLE_COMPRA.ID_LIBRO=LIBROS.ID_LIBRO )";
 $resultado= mysqli_query($conexion,$sql)
 ?>
 <!DOCTYPE html>
@@ -35,6 +33,7 @@ $resultado= mysqli_query($conexion,$sql)
         <label for="cart-toggle" class="boton-logo-carrito">
             <img src="../UPLOAD/LOGO.CARRITO.png" alt="Logo Carrito">
         </label>
+        <a href="../MIS_LIBROS.PHP">MIS LIBROS</a>
     </nav>
 </header>
 

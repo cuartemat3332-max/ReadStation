@@ -61,11 +61,13 @@ if (mysqli_num_rows($resultado) > 0) {
             <p class="precio"><strong>Precio:</strong> $<?php echo $libro['precio']; ?></p>
             <p class="editorial"><strong>Editorial:</strong> <?php echo $libro['EDITORIAL']; ?></p>
             <a href=""></a>
-            <button class="btn-comprar">Comprar Libro Digital</button>
+            <form action="comprar_libros.php" method="POST">
+                <input type="hidden" name="id_libro" value="<?php echo $libro['ID_LIBRO']; ?>">
+                <button class="btn-comprar">Comprar Libro Digital</button>
+            </form>
             <form action="agregar_carrito.php" method="POST">
                 <input type="hidden" name="id_libro" value="<?php echo $libro['ID_LIBRO']; ?>">
             <button  type="submit" class="btn-añadirCarrito">Añadir al carrito</button>
-
             </form>
         </div>
     </div>
