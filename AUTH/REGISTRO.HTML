@@ -1,0 +1,43 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/Style.css">
+    <title>ReadStation</title>
+    
+</head>
+<body>
+    <div class="conteiner_auth"> 
+        <h2>Crear Cuenta</h2>
+        <form action="ProcesarRegistro.php" METHOD="POST">
+            <div class="input">
+            <label for="Nombre">Nombre Completo:</label>
+            <input name="usuario" type="text" placeholder="Ej:Dylan Gayoso" required>
+            </div>
+
+            <br>
+            <div class="input">
+            <label for="Email">Email:</label>
+            <input  name ="email" type="email" placeholder="Ej:123gmail.com" required>
+            </div>
+
+            <br>
+
+            <div class="input">
+            <label for="Contraseña">Contraseña:</label>
+            <input name="password" type="password" placeholder="Ej:12345" required>
+            </div>
+            
+            <br>
+            <button type="submit" class="boton">Registrate</button>
+        </form>
+    <div class="footer">
+     <a href="LOGIN.HTML">Inicia Sesion</a>
+    </div>
+    </div>
+</body>
+</html>
