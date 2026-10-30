@@ -20,7 +20,7 @@ $resultado=mysqli_query($conexion,$sql);
 if (mysqli_num_rows($resultado) > 0) {
         $libro = mysqli_fetch_assoc($resultado);
     } else {
-        echo "El libro no existe.";
+        echo "No hay libros.";
         exit;
     }
 
@@ -39,15 +39,17 @@ if (mysqli_num_rows($resultado) > 0) {
     <?php include("carrito.php"); ?>
     <header>
     <nav>
-        <p>ReadStation</p>
-        <a href="AUTH/INICIO.PHP">Volver al Inicio</a>
-        
-        <label for="cart-toggle" class="boton-logo-carrito">
-            <img src="UPLOAD/LOGO.CARRITO.png" alt="Logo Carrito">
-        </label>
+        <a href="AUTH/INICIO.PHP" class="logo">
+            <img src="UPLOAD/LOGOREADSTATION.jpeg" alt="ReadStation">
+        </a>
+        <div class="menu">
+            <a href="AUTH/INICIO.PHP">Volver al Inicio</a>
+            <label for="cart-toggle" class="boton-logo-carrito">
+                <img src="UPLOAD/LOGO.CARRITO.png" alt="Carrito">
+            </label>
+        </div>
     </nav>
 </header>
-
     <div class="contenedor-detalle">
         <div class="columna-izquierda">
             <img src="UPLOAD/<?php echo $libro['imagen']; ?>" alt="<?php echo $libro['NOMBRE']; ?>">

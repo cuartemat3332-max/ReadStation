@@ -29,38 +29,36 @@ $resultado=mysqli_query($conexion,$sql);
 
 <header>
     <nav>
-        <p>ReadStation</p>
-        <img src="UPLOAD/LOGOREADSTATION.jpeg" alt="LOGO">
-        <a href="AUTH/LOGOUT.PHP">Cerrar sesión</a>
-        
-        <label for="cart-toggle" class="boton-logo-carrito">
-            <img src="UPLOAD/LOGO.CARRITO.png" alt="Logo Carrito">
-        </label>
-        <a href="AUTH/INICIO.PHP">IR AL INICIO</a>
+        <a href="AUTH/INICIO.PHP" class="logo">
+            <img src="UPLOAD/LOGOREADSTATION.jpeg" alt="ReadStation">
+        </a>
+
+        <div class="menu">
+            <a href="AUTH/INICIO.PHP">Ir al inicio</a>
+            <a href="AUTH/LOGOUT.PHP">Cerrar sesión</a>
+            <label for="cart-toggle" class="boton-logo-carrito">
+                <img src="UPLOAD/LOGO.CARRITO.png" alt="Carrito">
+            </label>
+        </div>
     </nav>
 </header>
 
-<h1>Bienvenido</h1>
+<h1>Mis libros</h1>
 
 <div class="Barra">
 <?php
-while($fila=mysqli_fetch_assoc($resultado)){
+while ($fila = mysqli_fetch_assoc($resultado)) {
     echo "<div class='Libro'>";
         echo '<span class="Imagen_Libro">';
         echo '    <img src="UPLOAD/' . $fila["imagen"] . '" alt="Portada">';
         echo '</span>';
         echo "<span class='Nombre_Libro'>" . $fila['NOMBRE'] . "</span>";
         echo "<span class='Descipcion_Libro'>" . $fila['descripcion'] . "</span>";
-        echo "<button>";
-        echo '  <a href="../LEER_LIBRO.php?id=' . $fila['ID_LIBRO'] . '">VER LIBRO</a>';
-        echo "</button>";
+        echo '<a class="btn-leer" href="LEER_LIBRO.php?ruta_libro_abrir=UPLOAD/' . $fila['archivo_libro'] . '" target="_blank">Leer libro</a>';
     echo "</div>";
 }
 ?>
 </div>
 
-</body>
-</html>
-    
 </body>
 </html>

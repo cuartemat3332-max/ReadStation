@@ -36,55 +36,59 @@ foreach ($libros_a_cobrar as $libro) {
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Finalizar Compra</title>
+    <link rel="stylesheet" href="CSS/Formularios.css">
 </head>
 <body>
-    <div class="contenedor-checkout">
+
+<header>
+    <nav>
+        <a href="AUTH/INICIO.PHP" class="logo">
+            <img src="UPLOAD/LOGOREADSTATION.jpeg" alt="ReadStation">
+        </a>
+        <a href="AUTH/INICIO.PHP">Volver al inicio</a>
+    </nav>
+</header>
+
+<div class="contenedor-checkout">
 
     <div class="resumen-compra">
-        <h3>Tu Compra</h3>
+        <h3>Tu compra</h3>
         <ul>
             <?php foreach ($libros_a_cobrar as $libro): ?>
                 <li>
-                    <strong><?php echo $libro['NOMBRE']; ?></strong> 
-                    - $<?php echo $libro['precio']; ?>
+                    <strong><?php echo $libro['NOMBRE']; ?></strong> - $<?php echo $libro['precio']; ?>
                 </li>
             <?php endforeach; ?>
         </ul>
-        <hr>
         <div class="total">
-            <strong>Total a Pagar: $<?php echo $total; ?></strong>
+            <strong>Total a pagar: $<?php echo $total; ?></strong>
         </div>
     </div>
 
-     <div class="formulario-pago">
-        <h3>Datos de Pago </h3>
+    <div class="formulario-pago">
+        <h3>Datos de pago</h3>
         <form action="procesar_pago.php" method="POST">
-            
+            <input type="hidden" name="total" value="<?php echo $total; ?>">
             <?php if (isset($_POST['id_libro'])): ?>
                 <input type="hidden" name="id_libro_directo" value="<?php echo $_POST['id_libro']; ?>">
-                <input type="hidden" name="total" value="<?php echo $total; ?>>
             <?php endif; ?>
 
-            <label>Nombre del Titular:</label>
+            <label>Nombre del titular:</label>
             <input type="text" name="titular" required placeholder="Juan Pérez">
 
-            <label>Número de Tarjeta:</label>
+            <label>Número de tarjeta:</label>
             <input type="text" name="tarjeta" required placeholder="4557 0000 0000 0000">
 
-            <button type="submit" class="btn-confirmar">Confirmar Compra y Descargar</button>
+            <button type="submit">Confirmar compra</button>
         </form>
     </div>
 
 </div>
 
-</body>
-</html>
-
-    
 </body>
 </html>

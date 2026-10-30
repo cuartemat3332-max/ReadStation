@@ -1,18 +1,84 @@
-*{
+* {
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
 }
+
 body {
-    margin: 0;
-    padding: 30px;
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     color: #333;
 }
 
+header {
+    background-color: #ffffff;
+    border-bottom: 4px solid #a50a12;
+    box-shadow: 0 2px 6px #00000020;
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 8px 20px;
+}
+
+header .logo img {
+    height: 60px;
+    width: auto;
+    display: block;
+}
+
+header .menu {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+header .menu a {
+    color: #a50a12;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 8px 14px;
+    border: 2px solid #a50a12;
+    border-radius: 5px;
+}
+
+header .menu a:hover {
+    background-color: #a50a12;
+    color: white;
+}
+
+header .boton-logo-carrito {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    background-color: #f08010;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+header .boton-logo-carrito:hover {
+    background-color: #e8360c;
+}
+
+header .boton-logo-carrito img {
+    width: 24px !important;
+    height: 24px !important;
+    max-width: 24px;
+    max-height: 24px;
+    object-fit: contain;
+}
+
 .contenedor-detalle {
     display: flex;
     gap: 40px;
+    width: 90%;
     max-width: 1000px;
     margin: 40px auto;
     padding: 30px;
@@ -38,9 +104,9 @@ body {
 }
 
 .columna-derecha h1 {
-    margin-top: 0;
     font-size: 30px;
-    color: #222;
+    color: #a50a12;
+    margin-bottom: 15px;
 }
 
 .columna-derecha p {
@@ -54,6 +120,10 @@ body {
     color: #16734a;
 }
 
+.columna-derecha form {
+    display: inline-block;
+}
+
 .columna-derecha button {
     padding: 12px 18px;
     margin: 10px 8px 0 0;
@@ -65,48 +135,17 @@ body {
 }
 
 .btn-comprar {
-    background-color: #2457a7;
+    background-color: #a50a12;
 }
 
 .btn-comprar:hover {
-    background-color: #183e7b;
+    background-color: #7d070d;
 }
 
 .btn-añadirCarrito {
-    background-color: #23864b;
+    background-color: #f08010;
 }
 
 .btn-añadirCarrito:hover {
-    background-color: #176638;
-}
-
-@media (max-width: 650px) {
-    body {
-        padding: 10px;
-    }
-
-    .contenedor-detalle {
-        flex-direction: column;
-        gap: 25px;
-        margin: 10px auto;
-        padding: 20px;
-    }
-
-    .columna-izquierda,
-    .columna-derecha {
-        width: 100%;
-    }
-
-    .columna-izquierda img {
-        max-width: 220px;
-    }
-
-    .columna-derecha h1 {
-        font-size: 24px;
-    }
-
-    .columna-derecha button {
-        width: 100%;
-        margin: 8px 0;
-    }
+    background-color: #d06a05;
 }

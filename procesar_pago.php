@@ -8,9 +8,9 @@ if (!isset($_SESSION['id_usuario'])) {
 }
 
 $id_usuario = $_SESSION['id_usuario'];
+$precio=(int) $_POST['total'];
 
 if (isset($_POST['id_libro_directo'])) {
-    $precio=(int)$_POST['total'];
     $id_libro = $_POST['id_libro_directo'];
     $insertar = "INSERT INTO compra(usuario_id, total) VALUES ('$id_usuario', '$precio')";
     mysqli_query($conexion, $insertar);
@@ -27,7 +27,7 @@ if (isset($_POST['id_libro_directo'])) {
 
     $id_compra = mysqli_insert_id($conexion);
 
-    $query_carrito = "SELECT DETALLE_CARRITO.ID_LIBRO, LIBROS.precio, CARRITO.ID_CARRITO  FROM DETALLE_CARRITO,LIBROS,CARRITO WHERE DETALLE_CARRITO.ID_LIBRO=LIBROS.ID_LIBRO AND CARRITO.ID_CARRITO=DETALLE_CARRITO.ID_CARRITO AND CARRITO.ID_USUARIO=USUARIOS.id AND USUARIOS.id='$id_usuario'";  
+    $query_carrito = "SELECT DETALLE_CARRITO.ID_LIBRO, LIBROS.precio, CARRITO.ID_CARRITO  FROM DETALLE_CARRITO,LIBROS,CARRITO,USUARIOS WHERE DETALLE_CARRITO.ID_LIBRO=LIBROS.ID_LIBRO AND CARRITO.ID_CARRITO=DETALLE_CARRITO.ID_CARRITO AND CARRITO.ID_USUARIO=USUARIOS.id AND USUARIOS.id='$id_usuario'";  
 
     $resultado_carrito = mysqli_query($conexion, $query_carrito);
     $id_carrito_a_vaciar = null;

@@ -33,6 +33,7 @@ if (mysqli_num_rows($resultado_carrito) > 0) {
     $id_carrito = mysqli_insert_id($conexion);
 }
 
+
 $sql_detalle = "SELECT ID_LIBRO FROM DETALLE_CARRITO 
                 WHERE ID_CARRITO = $id_carrito 
                 AND ID_LIBRO = $id_libro";

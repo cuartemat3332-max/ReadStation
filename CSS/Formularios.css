@@ -1,0 +1,124 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background-color: #ffffff;
+    border-bottom: 4px solid #a50a12;
+    box-shadow: 0 2px 6px #00000020;
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 8px 20px;
+}
+
+header .logo img {
+    height: 60px;
+    width: auto;
+    display: block;
+}
+
+header nav > a:not(.logo) {
+    color: #a50a12;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 14px;
+    border: 2px solid #a50a12;
+    border-radius: 5px;
+}
+
+header nav > a:not(.logo):hover {
+    background-color: #a50a12;
+    color: white;
+}
+
+.contenedor-checkout {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    width: 90%;
+    max-width: 900px;
+    margin: 40px auto;
+}
+
+.resumen-compra,
+.formulario-pago {
+    flex: 1;
+    min-width: 280px;
+    padding: 25px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px #00000015;
+}
+
+h3 {
+    color: #a50a12;
+    margin-bottom: 15px;
+}
+
+.resumen-compra ul {
+    list-style: none;
+}
+
+.resumen-compra li {
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.total {
+    margin-top: 15px;
+    font-size: 20px;
+    color: #16734a;
+}
+
+form label {
+    display: block;
+    margin: 15px 0 5px;
+    font-weight: bold;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+form input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+form input:focus {
+    outline: none;
+    border-color: #f08010;
+}
+
+form button {
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px;
+    background-color: #a50a12;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #7d070d;
+}
